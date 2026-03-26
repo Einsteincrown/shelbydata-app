@@ -13,20 +13,15 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
-  const [connecting, setConnecting] = useState(false);
+  // TODO: Replace with real @aptos-labs/wallet-adapter-react useWallet() hook
+  const walletAddress: string | null = null;
 
-  const handleConnect = async () => {
-    setConnecting(true);
-    // TODO: Replace with actual wallet adapter connect
-    setTimeout(() => {
-      setWalletAddress("0x1a2b3c4d5e6f7890abcdef1234567890abcdef12");
-      setConnecting(false);
-    }, 1000);
+  const handleConnect = () => {
+    // No-op until real wallet adapter is integrated
   };
 
   const handleDisconnect = () => {
-    setWalletAddress(null);
+    // No-op until real wallet adapter is integrated
   };
 
   return (
