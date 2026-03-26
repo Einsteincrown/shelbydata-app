@@ -59,10 +59,9 @@ export function Navbar() {
           ) : (
             <Button
               onClick={handleConnect}
-              disabled={connecting}
               className="gradient-primary text-primary-foreground border-0 rounded-full px-6"
             >
-              {connecting ? "Connecting..." : "Connect Wallet"}
+              Connect Wallet
             </Button>
           )}
         </div>
@@ -102,10 +101,9 @@ export function Navbar() {
             ) : (
               <Button
                 onClick={() => { handleConnect(); setMobileOpen(false); }}
-                disabled={connecting}
                 className="gradient-primary text-primary-foreground border-0 rounded-full w-fit px-6"
               >
-                {connecting ? "Connecting..." : "Connect Wallet"}
+                Connect Wallet
               </Button>
             )}
           </div>
