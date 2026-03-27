@@ -32,6 +32,12 @@ export function Navbar() {
           ShelbyData
         </Link>
 
+        {/* Testnet badge */}
+        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs text-green-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+          Live on Shelby Testnet
+        </span>
+
         {/* Desktop nav links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
