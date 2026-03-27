@@ -14,7 +14,7 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { account, connected, connect, disconnect, connecting, wallets } = useWallet();
+  const { account, connected, connect, disconnect, wallets } = useWallet();
   const walletAddress = account?.address?.toString() ?? null;
 
   const handleConnect = async () => {
@@ -78,13 +78,8 @@ export function Navbar() {
             <Button
               onClick={handleConnect}
               className="gradient-primary text-primary-foreground border-0 rounded-full px-6"
-              disabled={connecting}
             >
-              {connecting ? (
-                <><Loader2 className="h-4 w-4 animate-spin mr-1" /> Connecting...</>
-              ) : (
-                "Connect Wallet"
-              )}
+              Connect Wallet
             </Button>
           )}
         </div>
@@ -125,13 +120,8 @@ export function Navbar() {
               <Button
                 onClick={() => { handleConnect(); setMobileOpen(false); }}
                 className="gradient-primary text-primary-foreground border-0 rounded-full w-fit px-6"
-                disabled={connecting}
               >
-                {connecting ? (
-                  <><Loader2 className="h-4 w-4 animate-spin mr-1" /> Connecting...</>
-                ) : (
-                  "Connect Wallet"
-                )}
+                Connect Wallet
               </Button>
             )}
           </div>
