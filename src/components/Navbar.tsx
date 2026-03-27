@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Loader2 } from "lucide-react";
 import { formatAddress } from "@/lib/format";
 
 const navLinks = [
@@ -13,15 +14,26 @@ const navLinks = [
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  // TODO: Replace with real @aptos-labs/wallet-adapter-react useWallet() hook
-  const walletAddress: string | null = null;
+  const { account, connected, connect, disconnect, connecting, wallets } = useWallet();
+  const walletAddress = account?.address?.toString() ?? null;
 
-  const handleConnect = () => {
-    // No-op until real wallet adapter is integrated
+  const handleConnect = async () => {
+    try {
+      // If there's a wallet available, connect to the first one
+      if (wallets && wallets.length > 0) {
+        await connect(wallets[0].name);
+      }
+    } catch (err) {
+      console.error("Failed to connect wallet:", err);
+    }
   };
 
-  const handleDisconnect = () => {
-    // No-op until real wallet adapter is integrated
+  const handleDisconnect = async () => {
+    try {
+      await disconnect();
+    } catch (err) {
+      console.error("Failed to disconnect wallet:", err);
+    }
   };
 
   return (
@@ -66,8 +78,13 @@ export function Navbar() {
             <Button
               onClick={handleConnect}
               className="gradient-primary text-primary-foreground border-0 rounded-full px-6"
+              disabled={connecting}
             >
-              Connect Wallet
+              {connecting ? (
+                <><Loader2 className="h-4 w-4 animate-spin mr-1" /> Connecting...</>
+              ) : (
+                "Connect Wallet"
+              )}
             </Button>
           )}
         </div>
@@ -108,8 +125,13 @@ export function Navbar() {
               <Button
                 onClick={() => { handleConnect(); setMobileOpen(false); }}
                 className="gradient-primary text-primary-foreground border-0 rounded-full w-fit px-6"
+                disabled={connecting}
               >
-                Connect Wallet
+                {connecting ? (
+                  <><Loader2 className="h-4 w-4 animate-spin mr-1" /> Connecting...</>
+                ) : (
+                  "Connect Wallet"
+                )}
               </Button>
             )}
           </div>

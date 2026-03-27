@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { PageWrapper } from "@/components/PageWrapper";
 import { DatasetCard } from "@/components/DatasetCard";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -9,8 +10,8 @@ import { shelbyClient } from "@/lib/shelby";
 import { Upload } from "lucide-react";
 
 const MyUploads = () => {
-  // TODO: Get from wallet adapter
-  const walletAddress: string | null = null;
+  const { account, connected } = useWallet();
+  const walletAddress = account?.address?.toString() ?? null;
 
   const { data: blobs = [], isLoading } = useQuery({
     queryKey: ["blobs", "my-uploads", walletAddress],
