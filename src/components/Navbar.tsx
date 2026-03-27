@@ -33,8 +33,8 @@ export function Navbar() {
         </Link>
 
         {/* Testnet badge */}
-        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-xs text-green-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse" />
+        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary">
+          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
           Live on Shelby Testnet
         </span>
 
