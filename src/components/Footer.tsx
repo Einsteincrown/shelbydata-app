@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { Search, Upload, BookOpen, MessageCircle } from "lucide-react";
 
 const footerLinks = [
-  { to: "/browse", label: "Browse" },
-  { to: "/upload", label: "Upload" },
-  { href: "https://docs.shelby.xyz", label: "Docs" },
-  { href: "https://discord.gg/shelbyprotocol", label: "Discord" },
+  { to: "/browse", label: "Browse", icon: Search },
+  { to: "/upload", label: "Upload", icon: Upload },
+  { href: "https://docs.shelby.xyz", label: "Docs", icon: BookOpen },
+  { href: "https://discord.gg/shelbyprotocol", label: "Discord", icon: MessageCircle },
 ];
 
 export function Footer() {
