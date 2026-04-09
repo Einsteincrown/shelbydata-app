@@ -1,11 +1,11 @@
-# ShelbyData 
+# ShelbyVerse 
 
 A decentralized dataset marketplace built on Shelby Protocol — 
 upload, browse, and download datasets stored on Shelby's 
 hot storage network, powered by Aptos.
 
 ## Live Demo
-https://shelbydata.vercel.app
+https://shelby-sparkle-share.vercel.app/
 
 ## What It Does
 
